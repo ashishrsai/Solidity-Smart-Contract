@@ -8,3 +8,5 @@ This repo is upated frequently with new contracts written just for experimentati
 
 3> privateNote - can be used to store a string on blockchain which can only be accessed by the user who stored it , no need of providing passwords or usernames.
 
+4> voting - a very simple voting contract that has two candidates and it can count and return votes for each.
+
