@@ -2,16 +2,24 @@ pragma solidity ^0.4.17;
 
 contract bank{
     uint private balance;
+    address private owner;
 
     function bank(uint newBalance){
         balance = newBalance;
+        owner = msg.sender;
     }
 
-    function deposit(uint newFund){
+    modifier ownerFunc{
+        require(owner == msg.sender);
+        //we use the _ in order to execute the function that we use our custom modifier on
+        _;
+    }
+
+    function deposit(uint newFund) ownerFunc {
         balance = balance + newFund;
     }
 
-    function withdraw(uint amount){
+    function withdraw(uint amount) ownerFunc {
         if(balance >= amount){
             balance = balance - amount;
         }
